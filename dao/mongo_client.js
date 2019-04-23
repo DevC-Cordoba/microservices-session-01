@@ -12,7 +12,7 @@ class DBClient{
   Connect(){
     let thisRef = this;
     return new Promise((resolve,reject) => {
-        mongodb.MongoClient.connect(thisRef.urlMongo, function(err, client) {
+        mongodb.MongoClient.connect(thisRef.urlMongo,{ useNewUrlParser: true}, function(err, client) {
             if(err) return reject(err);
             thisRef._isConnected = true
             thisRef._connection = client;
